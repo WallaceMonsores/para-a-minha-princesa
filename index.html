@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosso Amor | 2 anos e 8 meses</title>
+    <meta
+      name="description"
+      content="Site romântico para celebrar 2 anos e 8 meses de namoro."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <section id="screen-home" class="screen active" aria-labelledby="home-title">
+        <div class="screen-overlay"></div>
+        <div class="sparkles" aria-hidden="true"></div>
+
+        <div class="home-content fade-in">
+          <h1 id="home-title" class="title-script">Nosso Amor <span aria-hidden="true">❤</span></h1>
+
+          <div class="heart-wrapper" aria-hidden="true">
+            <div class="heart"></div>
+          </div>
+
+          <div class="counter-card" role="status" aria-live="polite">
+            <p class="counter-label">Estamos juntos há</p>
+            <div class="counter-grid">
+              <div class="counter-item">
+                <strong id="years">0</strong>
+                <span>anos</span>
+              </div>
+              <div class="counter-item">
+                <strong id="months">0</strong>
+                <span>meses</span>
+              </div>
+              <div class="counter-item">
+                <strong id="days">0</strong>
+                <span>dias</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" data-go="screen-message">Entrar</button>
+        </div>
+      </section>
+
+      <section id="screen-message" class="screen" aria-labelledby="message-title">
+        <div class="screen-overlay"></div>
+
+        <article class="message-card fade-in">
+          <h2 id="message-title" class="title-script"></h2>
+          <div id="message-body" class="message-text"></div>
+
+          <div class="actions-row">
+            <button class="btn btn-primary" data-go="screen-timeline">Ver nossa Linha do Tempo</button>
+            <button class="btn btn-secondary" data-go="screen-home">Voltar</button>
+          </div>
+        </article>
+      </section>
+
+      <section id="screen-timeline" class="screen" aria-labelledby="timeline-title">
+        <div class="screen-overlay"></div>
+
+        <div class="timeline-header fade-in">
+          <h2 id="timeline-title" class="title-script">Nossa Linha do Tempo</h2>
+          <p>Momentos que fizeram e fazem nossa história ainda mais linda.</p>
+
+          <div class="actions-row">
+            <button class="btn btn-primary" id="open-modal-btn">
+              <i class="fa-solid fa-plus"></i>
+              Adicionar evento
+            </button>
+            <button class="btn btn-secondary" data-go="screen-message">Voltar</button>
+          </div>
+        </div>
+
+        <div id="timeline-list" class="timeline" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <div id="event-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-card">
+        <h3 id="modal-title">Adicionar evento</h3>
+
+        <form id="event-form">
+          <label>
+            Data
+            <input type="date" name="data" required />
+          </label>
+
+          <label>
+            Título
+            <input type="text" name="titulo" maxlength="60" required />
+          </label>
+
+          <label>
+            Descrição
+            <textarea name="descricao" rows="3" maxlength="220" required></textarea>
+          </label>
+
+          <label>
+            Imagem (URL ou caminho em assets/)
+            <input type="text" name="imagem" placeholder="assets/minha-foto.jpg" />
+          </label>
+
+          <label>
+            Video (URL ou caminho em assets/)
+            <input type="text" name="video" placeholder="assets/nosso-video.mp4" />
+          </label>
+
+          <div class="actions-row">
+            <button type="submit" class="btn btn-primary" id="submit-event-btn">Salvar evento</button>
+            <button type="button" class="btn btn-secondary" data-close-modal="true">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
